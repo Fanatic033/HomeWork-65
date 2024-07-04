@@ -3,6 +3,6 @@ export interface Pages {
     content: string;
 }
 
-export interface PagesList  {
+export interface PagesList {
     [id: string]: Pages;
 }

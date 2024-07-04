@@ -4,7 +4,7 @@ import axiosApi from "../../axiosApi.ts";
 import PageItem from "../../Components/PageItem/PageItem.tsx";
 import {Pages} from "../../types.ts";
 import Spinner from "../../Components/Spinner/Spinner.tsx";
-
+import './PageContainer.css'
 const PageContainer = () => {
     const {pageName} = useParams();
     const [content, setContent] = useState<Pages | null>(null);
