@@ -1,6 +1,7 @@
 import {ChangeEvent, FormEvent, useState, useEffect} from "react";
 import {useNavigate,} from "react-router-dom";
 import axiosApi from "../../axiosApi.ts";
+import {Pages} from "../../types.ts";
 
 const initialState = {
     title: '',
@@ -16,7 +17,7 @@ const EditPage = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axiosApi.get(`/pages/${selectedPage}.json`);
+                const response = await axiosApi.get<Pages>(`/pages/${selectedPage}.json`);
                 const { title, content } = response.data;
                 setForm({ title, content });
             } catch (error) {
@@ -41,7 +42,7 @@ const EditPage = () => {
         e.preventDefault();
         try {
             await axiosApi.put(`/pages/${selectedPage}.json`, form);
-            navigate('/');
+            navigate(`/pages/${selectedPage}`);
         } catch (error) {
             console.error(error);
         }
