@@ -3,26 +3,40 @@ import {useCallback, useEffect, useState} from "react";
 import axiosApi from "../../axiosApi.ts";
 import PageItem from "../../Components/PageItem/PageItem.tsx";
 import {Pages} from "../../types.ts";
+import Spinner from "../../Components/Spinner/Spinner.tsx";
 
 const PageContainer = () => {
     const {pageName} = useParams();
     const [content, setContent] = useState<Pages | null>(null);
+    const [isLoading, setIsLoading] = useState<boolean>(false)
 
     const getAxiosPage = useCallback(async () => {
         try {
+            setIsLoading(true)
             const {data: page} = await axiosApi.get<Pages | null>(`/pages/${pageName}.json`);
             setContent(page)
-        }catch (e){
+        } catch (e) {
             console.log(e)
+        } finally {
+            setIsLoading(false)
         }
-    },[pageName])
+    }, [pageName])
 
     useEffect(() => {
-      void  getAxiosPage()
-    },[getAxiosPage])
+        void getAxiosPage()
+    }, [getAxiosPage])
+
+
+    if (isLoading) {
+        return (
+            <div className='d-flex justify-content-center align-items-center'>
+                <Spinner/>
+            </div>
+        )
+    }
     return (
         <>
-<PageItem page={content}/>
+            <PageItem page={content}/>
         </>
     );
 };
