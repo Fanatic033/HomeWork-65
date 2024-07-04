@@ -7,19 +7,19 @@ const Header = () => {
                 <NavLink className="navbar-brand text-light ms-5" to="/">Navbar</NavLink>
                 <ul className="navbar-nav me-5 mb-2 mb-lg-0 ms-auto gap-3">
                     <li className="nav-item">
-                        <NavLink className="nav-link text-light" to="/">Home</NavLink>
+                        <NavLink className="nav-link text-light" to="/pages/Home">Home</NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink className="nav-link text-light" to="/about">About</NavLink>
+                        <NavLink className="nav-link text-light" to="/pages/About">About</NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink className="nav-link text-light" to="/contacts">Contacts</NavLink>
+                        <NavLink className="nav-link text-light" to="/pages/Contacts">Contacts</NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink className="nav-link text-light" to="/features">Features</NavLink>
+                        <NavLink className="nav-link text-light" to="/pages/Features">Features</NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink className="nav-link text-light" to="/pricing">Pricing</NavLink>
+                        <NavLink className="nav-link text-light" to="/pages/Pricing">Pricing</NavLink>
                     </li>
                 </ul>
             </div>

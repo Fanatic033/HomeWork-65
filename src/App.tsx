@@ -1,13 +1,14 @@
 import './App.css'
 import Header from "./Components/Header/Header.tsx";
 import {Route, Routes} from "react-router-dom";
-import Page from "./Components/Page/Page.tsx";
+import PageContainer from "./Containers/PageContainer/PageContainer.tsx";
 
 const App = () => (
     <>
-<Header/>
+        <Header/>
         <Routes>
-<Route path={'/pages/:pageName'} element={<Page/>}/>
+            <Route path={'/pages/:pageName'} element={<PageContainer/>}/>
+            <Route path={'*'} element={<h1 className={'text-center'}>PAGE Not Found</h1>}/>
         </Routes>
     </>
 );
